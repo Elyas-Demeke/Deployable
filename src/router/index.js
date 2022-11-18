@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import SignUpView from '@/views/SignUpView.vue'
+import NotFoundView from '@/views/NotFoundView.vue'
 import store from '../store'
 import {HTTP} from '../plugins/axios'
 
@@ -47,6 +48,10 @@ const router = createRouter({
       component: LoginView,
       beforeEnter: authGuard
     },
+    { 
+      path: '/:pathMatch(.*)', 
+      component: NotFoundView 
+  }
   ]
 })
 
